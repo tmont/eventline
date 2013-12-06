@@ -1,0 +1,228 @@
+.eventline-category-style(@color) {
+	.gradient-vertical-2(lighten(@color, 10%), @color);
+	border: 1px solid fade(@color, 75);
+}
+
+.plain-list() {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.events {
+	max-width: none;
+}
+
+.eventline-container {
+	position: relative;
+	.eventline-info {
+		position: absolute;
+		top: 0;
+		right: 0;
+		cursor: pointer;
+		font-weight: bold;
+		text-shadow: 1px 1px 1px black, 2px 2px 1px lighten(@aboutColor, 20%);
+		padding: 0 @gutter / 4;
+		opacity: 0.7;
+		.transition(opacity 150ms);
+		&:hover {
+			opacity: 1;
+		}
+	}
+}
+
+.eventline-legend {
+	.plain-list();
+	.centered-list;
+	text-align: center;
+	.user-select(none);
+	li {
+		float: left;
+		margin-right: @gutter;
+		cursor: pointer;
+		opacity: 0.75;
+		.transition(opacity 150ms);
+		&:hover {
+			opacity: 1;
+		}
+		&.eventline-inactive {
+			&, &:hover {
+				opacity: 0.3;
+			}
+		}
+		.eventline-category-color {
+			width: 10px;
+			height: 10px;
+			border-radius: 2px;
+			display: inline-block;
+		}
+		.eventline-category-label {
+			display: inline-block;
+			margin-left: @gutter / 4;
+			position: relative;
+			top: -1px;
+			font-size: 14px;
+		}
+	}
+}
+
+.eventline-category-music {
+	.eventline-category-style(@musicColor);
+}
+.eventline-category-life {
+	.eventline-category-style(@successColor);
+}
+.eventline-category-work {
+	.eventline-category-style(@aboutColor);
+}
+.eventline-category-education {
+	.eventline-category-style(@errorColor);
+}
+.eventline-category-code {
+	.eventline-category-style(@codeColor);
+}
+.eventline-category-gaming {
+	.eventline-category-style(@blarghColor);
+}
+
+.eventline-no-events {
+	padding: @gutter;
+	.eventline-message {
+		color: @aboutColor;
+		text-shadow: 2px 1px 1px fade(white, 70);
+		font-size: 60px;
+		font-family: @headerFont;
+		font-weight: bold;
+		text-align: center;
+	}
+}
+
+.eventline-scrollable {
+	overflow: auto;
+	clear: left;
+	padding: @gutter;
+	.eventline-axis {
+		.plain-list();
+		position: relative;
+		height: 40px;
+		li {
+			position: absolute;
+			padding-top: @gutter;
+			font-size: 18px;
+			.eventline-axis-label {
+				display: inline-block;
+				color: white;
+				text-shadow: 1px 1px 4px fade(white, 50);
+				.transform(~"rotate(-45deg) translate(5px, -15px)");
+			}
+		}
+
+		&.eventline-month {
+			.eventline-axis-label {
+				font-size: 14px;
+			}
+		}
+	}
+
+	.eventline-graph {
+		clear: left;
+		position: relative;
+		.eventline-grid-lines {
+			.plain-list();
+
+			li {
+				position: absolute;
+				width: 1px;
+				top: 0;
+				background-color: fade(white, 10);
+				height: 100%;
+			}
+		}
+
+		.eventline-event {
+			position: absolute;
+			height: 10px;
+			border-radius: 2px;
+			opacity: .65;
+			cursor: default;
+			.transition(opacity 250ms);
+
+			&:hover {
+				opacity: 1;
+			}
+
+			&:after {
+				position: relative;
+				left: 100%;
+				margin-left: 5px;
+				content: attr(data-abbreviation);
+				font-size: 12px;
+				top: -8px;
+				white-space: nowrap;
+			}
+
+			&.eventline-moment {
+				border-radius: 5px;
+				width: 5px;
+				height: 5px;
+				&:after {
+					top: -10px;
+				}
+			}
+		}
+	}
+}
+
+.eventline-event-description {
+	position: absolute;
+	font-size: 12px;
+	width: 280px;
+	opacity: 1;
+	box-shadow: 3px 3px 5px black;
+	.eventline-title {
+		color: white;
+		font-size: 14px;
+		border-bottom: 1px dotted fade(white, 20);
+		font: @headerFont;
+		font-weight: bold;
+		text-shadow: 1px 1px 1px fade(white, 30);
+		padding: @gutter / 4 0;
+		margin-bottom: @gutter / 4;
+	}
+	p {
+		text-align: left;
+		color: @color;
+		margin: 0;
+	}
+	time {
+		width: 100%;
+		font-size: 11px;
+		color: @aboutColor;
+	}
+	p, time {
+		padding: @gutter / 4;
+	}
+}
+
+.eventline-info-popup {
+	opacity: 1;
+	top: 0;
+	left: 0;
+	text-align: left;
+	width: 250px;
+	box-shadow: 3px 3px 5px black;
+	ul {
+		padding-left: 20px;
+	}
+	a {
+		color: @aboutColor;
+	}
+	kbd {
+		display: inline-block;
+		padding: 1px 2px;
+		text-align: center;
+		font-weight: bold;
+		.gradient-vertical-2(lighten(@bgColor, 20%), @bgColor);
+		border: 1px solid lighten(@bgColor, 10%);
+	}
+}
