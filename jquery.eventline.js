@@ -1,3 +1,15 @@
+/**
+ * This library depends on the following libraries:
+ * - dateFormat
+ * - jquery
+ * - jquery.mousewheel
+ *
+ * They are all included in the lib/ directory. Go wild.
+ *
+ * Originally written by Tommy Montgomery.
+ *
+ * Licensed under the WTFPL http://www.wtfpl.net/about/
+ */
 (function(window, document, $) {
 
 	function Eventline($element, options) {
