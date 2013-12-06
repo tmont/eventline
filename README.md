@@ -5,7 +5,7 @@ Here's a pretty picture. You can also view it in action on [my website](http://t
 
 ![Eventline Example](./docs/example.png)
 
-It's licensed under the (WTFPL)[http://www.wtfpl.net/about/] if you care about that kind
+It's licensed under the [WTFPL](http://www.wtfpl.net/about/) if you care about that kind
 of stuff.
 
 ## Installation
