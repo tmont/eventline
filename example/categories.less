@@ -1,0 +1,31 @@
+@import "../variables";
+
+.gradient-vertical-2(@color1, @color2, @stop1: 0%, @stop2: 100%) {
+	background-color: mix(@color1, @color2, 1);
+	background-image: -moz-linear-gradient(top, @color1 @stop1, @color2 @stop2);
+	background-image: -webkit-linear-gradient(top, @color1 @stop1, @color2 @stop2);
+	background-image: -ms-linear-gradient(top, @color1 @stop1, @color2 @stop2);
+	background-image: -o-linear-gradient(top, @color1 @stop1, @color2 @stop2);
+	background-image: linear-gradient(to bottom, @color1 @stop1, @color2 @stop2);
+}
+
+.eventline-category-style(@color) {
+	.gradient-vertical-2(lighten(@color, 10%), @color);
+	border: 1px solid fade(@color, 75);
+}
+
+.eventline-category-jobs {
+	.eventline-category-style(#678057);
+}
+
+.eventline-category-education {
+	.eventline-category-style(#ad7041);
+}
+
+.eventline-category-relationships {
+	.eventline-category-style(#7e5780);
+}
+
+.eventline-category-jailtime {
+	.eventline-category-style(#546280);
+}

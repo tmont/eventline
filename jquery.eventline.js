@@ -1,7 +1,3 @@
-/** @depends
- * lib/date.format.js
- * lib/jquery.mousewheel.js
- */
 (function(window, document, $) {
 
 	function Eventline($element, options) {
@@ -11,8 +7,9 @@
 		this.widthPerUnit = this.currentWidthPerUnit = options.widthPerUnit || 150;
 		this.showCredits = typeof(options.showCredits) !== 'undefined' ? !!options.showCredits : true;
 
-		// clean up dates
+		// clean up events
 		this.events.forEach(function(event) {
+			event.moment = event.moment ? 1 : 0;
 			if (!(event.startDate instanceof Date)) {
 				event.startDate = new Date(event.startDate);
 			}
@@ -241,7 +238,7 @@
 
 				$event.css({
 					left: left * activeWidth,
-					top: 10 + (eventHeight + (eventHeight / 2)) * i + (event.moment * 2)
+					top: 10 + (eventHeight + (eventHeight / 2)) * i + (+event.moment * 2)
 				});
 
 				var format = 'UTC:mmmm d, yyyy',

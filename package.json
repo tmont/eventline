@@ -1,0 +1,12 @@
+{
+	"name": "eventline",
+	"version": "0.0.1",
+
+	"dependencies": {
+		"serve": "*"
+	},
+
+	"scripts": {
+		"start": "node_modules/.bin/serve --port 12345 ."
+	}
+}

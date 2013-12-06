@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Eventline Example</title>
+		<link rel="stylesheet" type="text/css" href="../eventline.css"/>
+		<link rel="stylesheet" type="text/css" href="./categories.css"/>
+		<style>
+			body {
+				background-color: #363636;
+				color: #CDCDCD;
+				margin: 0;
+				font-family: Verdana, sans-serif;
+			}
+			#eventline-example {
+				min-width: 600px;
+				max-width: 1200px;
+				margin: 20px auto;
+				border: 1px solid rgba(128, 128, 128, 0.5);
+				border-radius: 2px;
+				padding: 20px;
+				background-image: -moz-linear-gradient(top, #303030, #181818);
+				background-image: -webkit-linear-gradient(top, #303030, #181818);
+				background-image: -ms-linear-gradient(top, #303030, #1818182);
+				background-image: -o-linear-gradient(top, #303030, #181818);
+				background-image: linear-gradient(to bottom, #303030, #181818);
+			}
+		</style>
+	</head>
+	<body>
+		<div id="eventline-example"></div>
+
+		<script src="../lib/date.format.js"></script>
+		<script src="../lib/jquery.min.js"></script>
+		<script src="../lib/jquery.mousewheel.js"></script>
+		<script src="../jquery.eventline.js"></script>
+		<script>
+			(function() {
+				var events = [
+					{
+						abbreviation: 'Karen',
+						title: 'Karen was super hot',
+						description: 'Dated Karen for a while. She was super hot, but I totally dumped her for a hotter girl.',
+						category: 'Relationships',
+						startDate: new Date('2000-12-20'),
+						endDate: new Date('2001-06-17')
+					},
+
+					{
+						abbreviation: 'Lacey',
+						title: 'Lacey just... didn\'t get me',
+						description: 'Lacey was also super hot, but she ate her peas one at a time! Needless to say, it was quite vexing.',
+						category: 'Relationships',
+						startDate: new Date('2001-09-15'),
+						endDate: new Date('2001-12-21')
+					},
+
+					{
+						abbreviation: 'Helga',
+						title: 'Helga the Destroyer!',
+						description: 'At first I thought she was a viking, but it turned out she was just Norwegian. How disappointing is that!?',
+						category: 'Relationships',
+						startDate: new Date('2002-04-12'),
+						endDate: new Date('2002-05-01')
+					},
+
+					{
+						abbreviation: 'Brittany',
+						title: 'I can\'t believe it\'s over!',
+						description: 'She was my soulmate, and she threw me out like yesterday\'s trash! Oh Brittany! Wherefore art thou in somebody else\'s trousers?',
+						category: 'Relationships',
+						startDate: new Date('2003-02-02'),
+						endDate: new Date('2005-02-14')
+					},
+
+					{
+						abbreviation: 'Benderella',
+						title: 'It turns out she was a robot',
+						description: 'This is why you shouldn\'t go on blind dates.',
+						category: 'Relationships',
+						startDate: new Date('2005-03-01'),
+						endDate: new Date('2005-04-02')
+					},
+
+					{
+						abbreviation: 'Stripperella',
+						title: 'Now this is my kind of robot!',
+						description: 'It turns out I just didn\'t find the right robot! Stripperella completes me.',
+						category: 'Relationships',
+						startDate: new Date('2005-07-29')
+					},
+
+					{
+						abbreviation: 'Ditch Digger',
+						title: 'I dug ditches',
+						description: 'Ditches are pretty cool, but I\'d rather be around robots.',
+						category: 'Jobs',
+						startDate: new Date('1999-08-15'),
+						endDate: new Date('2003-06-02')
+					},
+
+					{
+						abbreviation: 'Crane Operator',
+						title: 'Pays well but it\'s not very sexy',
+						description: 'At first I thought the job description was referring to the birds, but it turns out there are two definitions of "crane".',
+						category: 'Jobs',
+						startDate: new Date('2003-06-14'),
+						endDate: new Date('2005-01-05')
+					},
+
+					{
+						abbreviation: 'Male Escort',
+						title: 'Finally something I\'m good at',
+						description: 'It took me a while, but I finally found my calling in life. Unfortunately I got fired for being "too enthusiastic".',
+						category: 'Jobs',
+						startDate: new Date('2005-04-19'),
+						endDate: new Date('2010-08-24')
+					},
+
+					{
+						abbreviation: 'Webdude',
+						title: 'Freelance turned full time',
+						description: 'Doesn\'t pay as well as being a prostitute, but it\'s legal and I get to make my own hours.',
+						category: 'Jobs',
+						startDate: new Date('2008-07-30')
+					},
+
+					{
+						abbreviation: 'High School',
+						title: 'Fear and loathing at Ridgemont High',
+						description: 'Matthew McConaughey was a total jerk. And his weed was bunk.',
+						category: 'Education',
+						startDate: new Date('1996-09-01'),
+						endDate: new Date('2000-06-15')
+					},
+
+					{
+						abbreviation: 'College',
+						title: 'Ball So Hard University',
+						description: 'Met this dude who went on to play in the NFL. Couldn\'t understand a word he said, though...',
+						category: 'Education',
+						startDate: new Date('2000-08-25'),
+						endDate: new Date('2004-05-06')
+					},
+
+					{
+						abbreviation: 'ProsCert',
+						title: 'Got my prostitution certificate',
+						description: 'Best class ever!',
+						category: 'Education',
+						startDate: new Date('2005-04-12'),
+						moment: true
+					},
+
+					{
+						abbreviation: 'DUI',
+						title: 'Drinking is just so fun!',
+						description: 'But it IS difficult to drive when drinking...',
+						category: 'Jailtime',
+						startDate: new Date('1997-09-15'),
+						endDate: new Date('1997-09-29')
+					},
+
+					{
+						abbreviation: 'DUI',
+						title: 'Fool me once...',
+						description: 'You\'d think the judge would go easier on the sentencing the second time around...',
+						category: 'Jailtime',
+						startDate: new Date('1997-10-08'),
+						endDate: new Date('1997-11-08')
+					},
+
+					{
+						abbreviation: 'DUI',
+						title: 'This ain\'t baseball!',
+						description: 'What\'s this "Three Strikes" crap!? Nobody ever told me about that!',
+						category: 'Jailtime',
+						startDate: new Date('1997-11-26'),
+						endDate: new Date('1998-05-26')
+					},
+
+					{
+						abbreviation: 'Robbery',
+						title: 'My career as a jewel thief was short lived',
+						description: 'Would have gotten away with it if it wasn\'t for the security cameras.',
+						category: 'Jailtime',
+						startDate: new Date('1998-06-01'),
+						endDate: new Date('1998-09-01')
+					},
+
+					{
+						abbreviation: 'Arson',
+						title: 'It was an accident!',
+						description: 'They really should put a warning on the box: "DO NOT THROW AWAY LIT CIGARETTES IN A PAPER FACTORY". Merry Christmas to your face, judge.',
+						category: 'Jailtime',
+						startDate: new Date('1998-12-25'),
+						endDate: new Date('1999-02-14')
+					}
+				];
+
+				$('#eventline-example').eventline({
+					events: events,
+					defaultCategories: [ 'Relationships', 'Jobs' ]
+				});
+			}());
+		</script>
+	</body>
+</html>
