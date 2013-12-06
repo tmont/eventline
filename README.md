@@ -101,7 +101,7 @@ this isn't set (or set to an empty array) then all categories are shown by defau
 
 #### `showCredits`
 `showCredits` (default = `true`) shows a little question mark in the top right corner with links to
-me (the author), and the guy who inspired me to create this (Chee Aun Lee), plus
+me (the author), and the guy who inspired me to create this (Lim Chee Aun), plus
 a tip on how to use the mousewheel to maximum advantage. It looks like this:
 
 ![Credits](./docs/credits.png)
