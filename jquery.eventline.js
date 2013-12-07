@@ -340,11 +340,12 @@
 			var $scrollContainer = $('<div/>')
 				.addClass('eventline-scrollable')
 				.mousewheel(function(e) {
-					e.preventDefault();
 					if (e.deltaX !== 0 || e.deltaY === 0) {
 						//scrolling left/right manually or not scrolling at all
 						return;
 					}
+
+					e.preventDefault();
 
 					if (e.altKey) {
 						self.currentWidthPerUnit = Math.max(50, self.currentWidthPerUnit + (e.deltaY * 20));
