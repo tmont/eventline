@@ -206,16 +206,16 @@
 						current.setUTCFullYear(current.getUTCFullYear() + interval);
 						break;
 					case 'month':
-						text = dateFormat(current, 'mmm yyyy');
-						current.setMonth(current.getMonth() + interval);
+						text = dateFormat(current, 'UTC:mmm yyyy');
+						current.setMonth(current.getUTCMonth() + interval);
 						break;
 					case 'day':
-						text = dateFormat(current, 'mmm d');
-						current.setDate(current.getDate() + interval);
+						text = dateFormat(current, 'UTC:mmm d');
+						current.setDate(current.getUTCDate() + interval);
 						break;
 					case 'hour':
-						text = dateFormat(current, 'mmm d htt');
-						current.setHours(current.getHours() + interval);
+						text = dateFormat(current, 'UTC:mmm d htt');
+						current.setHours(current.getUTCHours() + interval);
 						break;
 				}
 
