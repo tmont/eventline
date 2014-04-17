@@ -5,6 +5,8 @@ Here's a pretty picture. You can also view it in action on [my website](http://t
 
 ![Eventline Example](./docs/example.png)
 
+Example with all stock CSS and whatnot is [here](http://tmont.github.io/eventline/).
+
 It's licensed under the [WTFPL](http://www.wtfpl.net/about/) if you care about that kind
 of stuff.
 
@@ -27,8 +29,7 @@ to make some additions to get the colors to look nice and stuff. Look at the stu
 - Firefox
 
 I didn't test on anything else because I don't hate myself enough. Probably kinda works
-on IE10+. It uses `[].forEach` and `[].map` and stuff and I can't remember which version
-of IE actually supports those.
+on IE10+.
 
 The CSS uses gradients and I didn't include the MS filter garbage to make those work.
 I would also gladly accept pull requests for those.
