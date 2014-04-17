@@ -2,7 +2,6 @@
  * This library depends on the following libraries:
  * - dateFormat
  * - jquery
- * - jquery.mousewheel
  *
  * They are all included in the lib/ directory. Go wild.
  *
@@ -93,7 +92,9 @@
 		},
 
 		renderEvents: function(events) {
-			var $container = this.$element.find('.eventline-container');
+			var $container = this.$element.find('.eventline-container'),
+				$scrollable = $container.find('.eventline-scrollable');
+
 			$container.find('.eventline-axis, .eventline-graph-events, .eventline-grid-lines').empty();
 			$container.find('.eventline-graph, .eventline-graph-container').css({ width: 'auto', height: 'auto' });
 			$container.find('.eventline-no-events').remove();
@@ -108,7 +109,7 @@
 						.addClass('eventline-message')
 						.text(arrow + ' Choose a category ' + arrow)
 					)
-					.appendTo($container.find('.eventline-scrollable'));
+					.appendTo($scrollable);
 				return;
 			}
 
@@ -231,7 +232,9 @@
 
 			var $events = $container.find('.eventline-graph-events');
 			events.forEach(function(event, i) {
-				var $event = $('<div/>').addClass('eventline-event').attr('data-abbreviation', event.abbreviation);
+				var $event = $('<div/>')
+					.addClass('eventline-event')
+					.attr('data-abbreviation', event.abbreviation);
 				if (event.category) {
 					$event.addClass('eventline-category-' + event.category.toLowerCase());
 				}
@@ -270,6 +273,9 @@
 					var timeout;
 					$event
 						.mouseenter(function(e) {
+							//don't show title on scroll container (just for chrome) while
+							//you're hovering over an event
+							$scrollable.removeAttr('title');
 							if (timeout) {
 								window.clearTimeout(timeout);
 								timeout = null;
@@ -302,6 +308,7 @@
 						})
 						.mouseleave(function() {
 							timeout = window.setTimeout(function() {
+								$scrollable.attr('title', $scrollable.data('title'));
 								$description.remove();
 								timeout = null;
 							}, 250);
@@ -336,23 +343,40 @@
 					.appendTo($legend);
 			});
 
+			var prevX = 0,
+				title = 'Drag to scroll, alt+mousewheel to zoom';
+
 			var $scrollContainer = $('<div/>')
 				.addClass('eventline-scrollable')
-				.mousewheel(function(e) {
-					if (e.deltaX !== 0 || e.deltaY === 0) {
-						//scrolling left/right manually or not scrolling at all
+				.attr('title', title)
+				.data('title', title)
+				.mousedown(function(e) {
+					if (!$(this).hasClass('scrolling')) {
+						$(this).addClass('scrolling');
+					}
+
+					prevX = e.clientX;
+				})
+				.mousemove(function(e) {
+					var $this = $(this);
+					if (!$this.hasClass('scrolling')) {
 						return;
 					}
 
-					e.preventDefault();
-
-					if (e.altKey) {
-						self.currentWidthPerUnit = Math.max(50, self.currentWidthPerUnit + (e.deltaY * 20));
+					$this.scrollLeft($this.scrollLeft() + prevX - e.clientX);
+					prevX = e.clientX;
+				})
+				.mouseup(function() {
+					$(this).removeClass('scrolling');
+				})
+				.mouseleave(function() {
+					$(this).removeClass('scrolling');
+				})
+				.on('wheel', function(e) {
+					if (e.altKey && e.originalEvent.deltaY) {
+						var delta = e.originalEvent.deltaY < 0 ? -1 : 1;
+						self.currentWidthPerUnit = Math.max(50, self.currentWidthPerUnit + (delta * 20));
 						self.renderEvents(self.getActiveEvents());
-					} else {
-						$(this)
-							.stop(true, true)
-							.animate({ scrollLeft: '-=' + (e.deltaY * 20) }, 200, 'linear');
 					}
 				})
 				.append($legend)

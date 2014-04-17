@@ -12,7 +12,6 @@ of stuff.
 Reference `jquery.eventline.js` somewhere. You will also need the following scripts included as well:
 
 * jQuery
-* `lib/jquery.mousewheel.js`
 * `lib/date.format.js`
 
 I probably could have alleviated the need for `dateFormat`, but in my case I was already

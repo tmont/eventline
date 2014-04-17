@@ -169,6 +169,18 @@
   overflow: auto;
   clear: left;
   padding: 20px;
+  cursor: -moz-grab;
+  cursor: -webkit-grab;
+  cursor: grab;
+}
+.eventline-scrollable.scrolling {
+  cursor: -moz-grabbing;
+  cursor: -webkit-grabbing;
+  cursor: grabbing;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
 }
 .eventline-scrollable .eventline-axis {
   list-style: none;

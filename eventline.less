@@ -115,6 +115,19 @@
 	overflow: auto;
 	clear: left;
 	padding: @gutter;
+	cursor: -moz-grab;
+	cursor: -webkit-grab;
+	cursor: grab;
+
+	&.scrolling {
+		cursor: -moz-grabbing;
+		cursor: -webkit-grabbing;
+		cursor: grabbing;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		-webkit-user-select: none;
+		user-select: none;
+	}
 	.eventline-axis {
 		.plain-list();
 		position: relative;
