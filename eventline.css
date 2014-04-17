@@ -1,0 +1,344 @@
+.tooltip {
+	position: absolute;
+	text-align: center;
+	font-size: 13px;
+	background-color: rgba(29, 29, 29, 0.7499999999999999);
+	background-image: -moz-linear-gradient(top, rgba(54, 54, 54, 0.75) 0%, rgba(28, 28, 28, 0.75) 100%);
+	background-image: -webkit-linear-gradient(top, rgba(54, 54, 54, 0.75) 0%, rgba(28, 28, 28, 0.75) 100%);
+	background-image: -ms-linear-gradient(top, rgba(54, 54, 54, 0.75) 0%, rgba(28, 28, 28, 0.75) 100%);
+	background-image: -o-linear-gradient(top, rgba(54, 54, 54, 0.75) 0%, rgba(28, 28, 28, 0.75) 100%);
+	background-image: linear-gradient(to bottom, rgba(54, 54, 54, 0.75) 0%, rgba(28, 28, 28, 0.75) 100%);
+	border: 1px solid #818181;
+	border-radius: 2px;
+	padding: 2px 4px;
+	opacity: 0;
+	-moz-transition: opacity 250ms;
+	-webkit-transition: opacity 250ms;
+	transition: opacity 250ms;
+}
+
+.tooltip.active {
+	opacity: 0.95;
+}
+
+.tooltip:after,
+.tooltip:before {
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+}
+
+.tooltip:after {
+	border-width: 4px;
+	border-color: rgba(54, 54, 54, 0);
+}
+
+.tooltip:before {
+	border-width: 5px;
+	border-color: rgba(129, 129, 129, 0);
+}
+
+.tooltip.left:before,
+.tooltip.left:after {
+	right: 100%;
+	top: 50%;
+}
+
+.tooltip.left:after {
+	border-right-color: rgba(54, 54, 54, 0.75);
+	margin-top: -4px;
+}
+
+.tooltip.left:before {
+	border-right-color: #818181;
+	margin-top: -5px;
+}
+
+.tooltip.right:before,
+.tooltip.right:after {
+	left: 100%;
+	top: 50%;
+}
+
+.tooltip.right:after {
+	border-left-color: rgba(54, 54, 54, 0.75);
+	margin-top: -4px;
+}
+
+.tooltip.right:before {
+	border-left-color: #818181;
+	margin-top: -5px;
+}
+
+.tooltip.top:before,
+.tooltip.top:after {
+	bottom: 100%;
+	left: 50%;
+}
+
+.tooltip.top:after {
+	border-bottom-color: rgba(54, 54, 54, 0.75);
+	margin-left: -4px;
+}
+
+.tooltip.top:before {
+	border-bottom-color: #818181;
+	margin-left: -5px;
+}
+
+.tooltip.bottom:before,
+.tooltip.bottom:after {
+	top: 100%;
+	left: 50%;
+}
+
+.tooltip.bottom:after {
+	left: 50%;
+	border-top-color: rgba(54, 54, 54, 0.75);
+	margin-left: -4px;
+}
+
+.tooltip.bottom:before {
+	left: 50%;
+	border-top-color: #818181;
+	margin-left: -5px;
+}
+
+.eventline-container {
+	position: relative;
+}
+
+.eventline-container .eventline-info {
+	position: absolute;
+	top: 0;
+	right: 0;
+	cursor: pointer;
+	font-weight: bold;
+	text-shadow: 1px 1px 1px #000000, 2px 2px 1px #a1a5b0;
+	padding: 0 5px;
+	opacity: 0.7;
+	-moz-transition: opacity 150ms;
+	-webkit-transition: opacity 150ms;
+	transition: opacity 150ms;
+}
+
+.eventline-container .eventline-info:hover {
+	opacity: 1;
+}
+
+.eventline-legend {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	margin: 0 auto;
+	width: -moz-fit-content;
+	width: -webkit-fit-content;
+	width: fit-content;
+	text-align: center;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+.eventline-legend li {
+	float: left;
+	margin-right: 20px;
+	cursor: pointer;
+	opacity: 0.75;
+	-moz-transition: opacity 150ms;
+	-webkit-transition: opacity 150ms;
+	transition: opacity 150ms;
+}
+
+.eventline-legend li:hover {
+	opacity: 1;
+}
+
+.eventline-legend li.eventline-inactive,
+.eventline-legend li.eventline-inactive:hover {
+	opacity: 0.3;
+}
+
+.eventline-legend li .eventline-category-color {
+	width: 10px;
+	height: 10px;
+	border-radius: 2px;
+	display: inline-block;
+}
+
+.eventline-legend li .eventline-category-label {
+	display: inline-block;
+	margin-left: 5px;
+	position: relative;
+	top: -1px;
+	font-size: 14px;
+}
+
+.eventline-no-events {
+	padding: 20px;
+}
+
+.eventline-no-events .eventline-message {
+	color: #6b7180;
+	text-shadow: 2px 1px 1px rgba(255, 255, 255, 0.7);
+	font-size: 60px;
+	font-family: Georgia, serif;
+	font-weight: bold;
+	text-align: center;
+}
+
+.eventline-scrollable {
+	overflow: auto;
+	clear: left;
+	padding: 20px;
+	cursor: -moz-grab;
+	cursor: -webkit-grab;
+	cursor: grab;
+}
+
+.eventline-scrollable.scrolling {
+	cursor: -moz-grabbing;
+	cursor: -webkit-grabbing;
+	cursor: grabbing;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-webkit-user-select: none;
+	user-select: none;
+}
+
+.eventline-scrollable .eventline-axis {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	position: relative;
+	height: 40px;
+}
+
+.eventline-scrollable .eventline-axis li {
+	position: absolute;
+	padding-top: 20px;
+	font-size: 18px;
+}
+
+.eventline-scrollable .eventline-axis li .eventline-axis-label {
+	display: inline-block;
+	color: white;
+	text-shadow: 1px 1px 4px rgba(255, 255, 255, 0.5);
+	-moz-transform: rotate(-45deg) translate(5px, -15px);
+	-webkit-transform: rotate(-45deg) translate(5px, -15px);
+	-o-transform: rotate(-45deg) translate(5px, -15px);
+	transform: rotate(-45deg) translate(5px, -15px);
+}
+
+.eventline-scrollable .eventline-axis.eventline-month .eventline-axis-label {
+	font-size: 14px;
+}
+
+.eventline-scrollable .eventline-graph {
+	clear: left;
+	position: relative;
+}
+
+.eventline-scrollable .eventline-graph .eventline-grid-lines {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.eventline-scrollable .eventline-graph .eventline-grid-lines li {
+	position: absolute;
+	width: 1px;
+	top: 0;
+	background-color: rgba(255, 255, 255, 0.1);
+	height: 100%;
+}
+
+.eventline-scrollable .eventline-graph .eventline-event {
+	position: absolute;
+	height: 10px;
+	border-radius: 2px;
+	opacity: .65;
+	cursor: default;
+	-moz-transition: opacity 250ms;
+	-webkit-transition: opacity 250ms;
+	transition: opacity 250ms;
+}
+
+.eventline-scrollable .eventline-graph .eventline-event:hover {
+	opacity: 1;
+}
+
+.eventline-scrollable .eventline-graph .eventline-event:after {
+	position: relative;
+	left: 100%;
+	margin-left: 5px;
+	content: attr(data-abbreviation);
+	font-size: 12px;
+	top: -8px;
+	white-space: nowrap;
+}
+
+.eventline-scrollable .eventline-graph .eventline-event.eventline-moment {
+	border-radius: 5px;
+	width: 5px;
+	height: 5px;
+}
+
+.eventline-scrollable .eventline-graph .eventline-event.eventline-moment:after {
+	top: -10px;
+}
+
+.eventline-event-description {
+	position: absolute;
+	font-size: 12px;
+	width: 280px;
+	opacity: 1;
+	box-shadow: 3px 3px 5px black;
+}
+
+.eventline-event-description .eventline-title {
+	color: white;
+	font-size: 14px;
+	border-bottom: 1px dotted rgba(255, 255, 255, 0.2);
+	font: Georgia, serif;
+	font-weight: bold;
+	text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.3);
+	padding: 5px 0;
+	margin-bottom: 5px;
+}
+
+.eventline-event-description p {
+	text-align: left;
+	color: #cdcdcd;
+	margin: 0;
+}
+
+.eventline-event-description time {
+	width: 100%;
+	font-size: 11px;
+	color: #6b7180;
+}
+
+.eventline-event-description p,
+.eventline-event-description time {
+	padding: 5px;
+}
+
+.eventline-info-popup {
+	opacity: 1;
+	top: 0;
+	left: 0;
+	text-align: center;
+	box-shadow: 3px 3px 5px black;
+	padding: 10px 5px;
+}
+
+.eventline-info-popup a {
+	color: #6b7180;
+}

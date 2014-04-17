@@ -1,0 +1,39 @@
+.eventline-category-jobs {
+	background-color: #678057;
+	background-image: -moz-linear-gradient(top, #809c6e 0%, #678057 100%);
+	background-image: -webkit-linear-gradient(top, #809c6e 0%, #678057 100%);
+	background-image: -ms-linear-gradient(top, #809c6e 0%, #678057 100%);
+	background-image: -o-linear-gradient(top, #809c6e 0%, #678057 100%);
+	background-image: linear-gradient(to bottom, #809c6e 0%, #678057 100%);
+	border: 1px solid rgba(103, 128, 87, 0.75);
+}
+
+.eventline-category-education {
+	background-color: #ad7041;
+	background-image: -moz-linear-gradient(top, #c38a5e 0%, #ad7041 100%);
+	background-image: -webkit-linear-gradient(top, #c38a5e 0%, #ad7041 100%);
+	background-image: -ms-linear-gradient(top, #c38a5e 0%, #ad7041 100%);
+	background-image: -o-linear-gradient(top, #c38a5e 0%, #ad7041 100%);
+	background-image: linear-gradient(to bottom, #c38a5e 0%, #ad7041 100%);
+	border: 1px solid rgba(173, 112, 65, 0.75);
+}
+
+.eventline-category-relationships {
+	background-color: #7e5780;
+	background-image: -moz-linear-gradient(top, #9a6e9c 0%, #7e5780 100%);
+	background-image: -webkit-linear-gradient(top, #9a6e9c 0%, #7e5780 100%);
+	background-image: -ms-linear-gradient(top, #9a6e9c 0%, #7e5780 100%);
+	background-image: -o-linear-gradient(top, #9a6e9c 0%, #7e5780 100%);
+	background-image: linear-gradient(to bottom, #9a6e9c 0%, #7e5780 100%);
+	border: 1px solid rgba(126, 87, 128, 0.75);
+}
+
+.eventline-category-jailtime {
+	background-color: #546280;
+	background-image: -moz-linear-gradient(top, #6a7a9d 0%, #546280 100%);
+	background-image: -webkit-linear-gradient(top, #6a7a9d 0%, #546280 100%);
+	background-image: -ms-linear-gradient(top, #6a7a9d 0%, #546280 100%);
+	background-image: -o-linear-gradient(top, #6a7a9d 0%, #546280 100%);
+	background-image: linear-gradient(to bottom, #6a7a9d 0%, #546280 100%);
+	border: 1px solid rgba(84, 98, 128, 0.75);
+}
