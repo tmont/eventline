@@ -17,7 +17,6 @@
 		this.events = options.events || [];
 		this.defaultCategories = options.defaultCategories || [];
 		this.widthPerUnit = this.currentWidthPerUnit = options.widthPerUnit || 150;
-		this.showCredits = typeof(options.showCredits) !== 'undefined' ? !!options.showCredits : true;
 
 		// clean up events
 		this.events.forEach(function(event) {
@@ -367,69 +366,53 @@
 					)
 				);
 
-			var $info;
-			if (this.showCredits) {
-				$info = $('<div/>')
-					.addClass('eventline-info')
-					.text('?')
-					.click(function() {
-						var $popup = $('.eventline-info-popup');
-						if ($popup.length) {
-							$popup.remove();
-							return;
-						}
+			var $info = $('<div/>')
+				.addClass('eventline-info')
+				.text('?')
+				.click(function() {
+					var $popup = $('.eventline-info-popup');
+					if ($popup.length) {
+						$popup.remove();
+						return;
+					}
 
-						$popup = $('<div/>')
-							.addClass('eventline-info-popup tooltip top')
-							.append($('<ul/>')
-								.append($('<li/>')
-									.append('Written by ')
-									.append($('<a/>')
-										.attr({ href: 'http://tmont.com/', target: '_blank' })
-										.text('Tommy Montgomery')
-									)
-								)
-								.append($('<li/>')
-									.append('Inspired by ')
-									.append($('<a/>')
-										.attr({ href: 'https://github.com/cheeaun/life', target: '_blank' })
-										.text('Lim Chee Aun\'s Life demo')
-									)
-								)
-								.append($('<li/>')
-									.append('Scroll horizontally with your mousewheel; hold ')
-									.append($('<kbd/>').text('Alt'))
-									.append(' to zoom in and out')
-								)
-								.append($('<li/>').html())
-							)
-							.appendTo('body');
+					$popup = $('<div/>')
+						.addClass('eventline-info-popup tooltip top')
+						.append($('<a/>')
+							.attr({ href: 'https://github.com/tmont/eventline', target: '_blank' })
+							.text('Eventline')
+						)
+						.append(' by ')
+						.append($('<a/>')
+							.attr({ href: 'http://tmont.com/', target: '_blank' })
+							.text('Tommy Montgomery')
+						)
+						.appendTo('body');
 
-						var width = $popup.outerWidth(),
-							offset = $(this).offset(),
-							infoWidth = $info.outerWidth(),
-							infoHeight = $info.outerHeight();
+					var width = $popup.outerWidth(),
+						offset = $(this).offset(),
+						infoWidth = $info.outerWidth(),
+						infoHeight = $info.outerHeight();
 
-						$popup.css({
-							left: offset.left + infoWidth / 2 - width / 2,
-							top: offset.top + infoHeight + 5
-						});
+					$popup.css({
+						left: offset.left + infoWidth / 2 - width / 2,
+						top: offset.top + infoHeight + 5
 					});
-
-				$(document).on('click.eventline', function(e) {
-					var $target = $(e.target),
-						cls = 'eventline-info-popup',
-						info = $('eventline-info')[0];
-					if ($target.hasClass(cls) || $target.closest('.' + cls).length) {
-						return;
-					}
-					if ($target[0] === $info[0]) {
-						return;
-					}
-
-					$('.' + cls).remove();
 				});
-			}
+
+			$(document).on('click.eventline', function(e) {
+				var $target = $(e.target),
+					cls = 'eventline-info-popup',
+					info = $('eventline-info')[0];
+				if ($target.hasClass(cls) || $target.closest('.' + cls).length) {
+					return;
+				}
+				if ($target[0] === $info[0]) {
+					return;
+				}
+
+				$('.' + cls).remove();
+			});
 
 			$('<div/>')
 				.addClass('eventline-container')
