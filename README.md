@@ -3,7 +3,7 @@
 This is a thing. It's inspired by [this demo](https://github.com/cheeaun/life).
 Here's a pretty picture. You can also view it in action on [my website](http://tmont.com/about/eventline).
 
-![Eventline Example](./docs/example.png)
+![Eventline Example](./docs/example.jpeg)
 
 Example with all stock CSS and whatnot is [here](http://tmont.github.io/eventline/).
 
